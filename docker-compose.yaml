@@ -3,8 +3,6 @@ services:
   mongo-svc:
     image: mongo
     container_name: mongodb_container
-    volumes:
-      - /Users/wuchichen/Desktop/datadir:/data/db
     ports:
       - "27017:27017"
     environment:
