@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  mongo-svc:
+    image: mongo
+    container_name: mongodb_container
+    volumes:
+      - /Users/wuchichen/Desktop/datadir:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+
+  incident-backend-svc:
+    build: ./incident-backend
+    container_name: incident_backend_container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo-svc
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb_container
+      ME_CONFIG_MONGODB_ADMINUSERNAME: mongoadmin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: secret
+      PORT: 8080
+      TOKEN_SECRET: 25dhHrNhOI
+      TOKEN_ALGORITHM: HS256
+
+  incident-frontend-svc:
+    build: ./incident-frontend
+    container_name: incident_frontend_container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - incident-backend-svc

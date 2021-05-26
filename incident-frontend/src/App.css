@@ -1,0 +1,37 @@
+.inc-topnav {
+  height: 10vh;
+}
+
+.inc-main {
+  padding-top: 1.2rem;
+  min-height: 83vh;
+  overflow: auto;
+}
+
+.bg-main {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  filter: blur(3px);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.inc-footer {
+  background-color: #343a40;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.btn-highlight-1 {
+  color: #fff;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
